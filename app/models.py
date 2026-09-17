@@ -9,4 +9,4 @@ class Product(BaseModel):
 
 class Order(BaseModel):
     product_id: int
-    quantity: int
+    quantity: int  = Field(gt=0)
