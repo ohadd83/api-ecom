@@ -71,10 +71,10 @@ pipeline {
 
                 echo "Running health check..."
                 
-                sh '''
-                docker ps 
-                docker inspect python-ecommerce-api --format='{{.State.Status}}' | grep running
-                '''
+//                sh '''
+  //              docker ps 
+    //            docker inspect python-ecommerce-api --format='{{.State.Status}}' | grep running
+      //          '''
 
                 sh '''
                     curl -f http://localhost:8001/health
