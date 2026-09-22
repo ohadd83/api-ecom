@@ -5,7 +5,7 @@ from app.routes import orders
 
 
 app = FastAPI(
-    title="E-Commerce API",
+    title="E-Commerce API prd",
     version="1.0.0"
 )
 
