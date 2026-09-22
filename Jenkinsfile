@@ -136,7 +136,7 @@ pipeline {
                 echo "Deploying application..."
 
                 sh '''
-                    docker stop ${CONTAINER_NAME} || true
+                    docker stop ${CONTAINER_NAME} 
 
                     docker rm ${CONTAINER_NAME} || true
 
