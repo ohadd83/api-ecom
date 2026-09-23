@@ -153,6 +153,19 @@ pipeline {
             }
         }
 
+        stage('Record Successful Deployment') {
+            steps {
+               writeFile(
+                  file: env.ROLLBACK_FILE,
+                  text: "${BUILD_NUMBER}"
+             )
+
+                  echo "Recorded successful deployment: ${BUILD_NUMBER}"
+                  }
+       }
+
+
+
 // production healthcheck 
 
         stage('Health Check') {
@@ -172,16 +185,7 @@ pipeline {
     }
 
 
-        stage('Record Successful Deployment') {
-            steps {
-               writeFile(
-                  file: env.ROLLBACK_FILE,
-                  text: "${BUILD_NUMBER}"
-             )
 
-                  echo "Recorded successful deployment: ${BUILD_NUMBER}"
-                  }
-       }
 
 // pipeline result 
 
