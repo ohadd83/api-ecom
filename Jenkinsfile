@@ -178,7 +178,7 @@ pipeline {
 
                 sh '''
                     curl -f \
-                        http://localhost:${APP_PORT}/health
+                        http://localhost:${APP_PORT}/health_BAD_EXTIONTION_FOR FAILURE
                 '''
             }
         }
