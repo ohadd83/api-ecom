@@ -71,10 +71,10 @@ pipeline {
 
                 echo "Running health check..."
                 
-                sh '''
-                docker ps 
-                docker inspect python-ecommerce-api --format='{{.State.Status}}' | grep running
-                '''
+                
+//                docker ps 
+//                docker inspect python-ecommerce-api --format='{{.State.Status}}' | grep running
+               
 
                 sh '''
                     curl -f http://localhost:8001/health
@@ -88,7 +88,7 @@ pipeline {
                     echo "Removing test container..."
 
                     sh '''
-                           echo "lets move on" //   docker rm -f ${CONTAINER_NAME}-test || true
+                        docker rm -f ${CONTAINER_NAME}-test || true
                     '''
                 }
             }
