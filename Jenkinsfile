@@ -218,6 +218,27 @@ pipeline {
               PIPELINE FAILED
             ==========================================
             """
+
+        echo "Production deployment failed!"
+        echo "Starting rollback..."
+
+        sh """
+            docker pull ${IMAGE_NAME}:${ROLLBACK_TAG}
+
+            docker stop ${CONTAINER_NAME} || true
+            docker rm ${CONTAINER_NAME} || true
+
+            docker run -d \
+                --name ${CONTAINER_NAME} \
+                -p ${APP_PORT}:8000 \
+                ${IMAGE_NAME}:${ROLLBACK_TAG}
+        """
+
+            echo """
+            ==========================================
+              ROLLBACK FINISHED 
+            ==========================================
+            """
         }
     }
 }
