@@ -88,7 +88,7 @@ pipeline {
                     echo "Removing test container..."
 
                     sh '''
-                        docker rm -f ${CONTAINER_NAME}-test || true
+                           echo "lets move on" //   docker rm -f ${CONTAINER_NAME}-test || true
                     '''
                 }
             }
