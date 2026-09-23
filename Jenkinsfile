@@ -222,7 +222,7 @@ pipeline {
         echo "Production deployment failed!"
         echo "Starting rollback..."
 
-        sh """
+        sh '''
             ROLLBACK_TAG=$(cat /var/lib/jenkins/last_successful_tag)
             docker pull ${IMAGE_NAME}:${ROLLBACK_TAG}
 
@@ -233,7 +233,7 @@ pipeline {
                 --name ${CONTAINER_NAME} \
                 -p ${APP_PORT}:8000 \
                 ${IMAGE_NAME}:${ROLLBACK_TAG}
-        """
+        '''
 
             echo """
             ==========================================
