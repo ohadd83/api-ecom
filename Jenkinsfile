@@ -79,7 +79,7 @@ pipeline {
                
 
                 sh '''
-                    curl -f http://localhost:8001/health
+                    curl -f http://localhost:8001/health_AAAAA
                 '''
             }
 
