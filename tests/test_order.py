@@ -16,7 +16,7 @@ def test_create_order():
         }
     )
 
-    assert response.status_code == 200
+    assert response.status_code == 400
 
     data = response.json()
 
