@@ -30,7 +30,7 @@ products_db = [
         "stock": 5
     },
         {
-        "id": 5,
+        "id": 6,
         "name": "screen",
         "price": 900.00,
         "stock": 17
