@@ -84,6 +84,8 @@ pipeline {
 
                 sh '''
                     curl -f http://localhost:8001/health
+               
+                    curl -f  -X POST  -H "Content-Type: application/json" -d '{"product_id":1,"quantity":2}' http://localhost:8001/orders/
                 '''
             }
 
