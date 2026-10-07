@@ -152,7 +152,7 @@ pipeline {
 
 
 
-        }
+        
 //  deploy application
 
         stage('Deploy') {
