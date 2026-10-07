@@ -186,7 +186,7 @@ pipeline {
 
                 sh '''
                     curl -f    http://localhost:${APP_PORT}/health
-                    curl -f  http://localhost:$APP_PORT}/products/ 
+                    curl -f  http://localhost:${APP_PORT}/products/ 
                 '''
             }
         }
