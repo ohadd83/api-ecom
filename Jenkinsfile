@@ -12,7 +12,8 @@ pipeline {
 
         // Application port on EC2
         APP_PORT = "8000"
-
+        // app STG port on EC2
+        STG_APP_PORT = '8002'
         // Jenkins build number becomes the image version
         IMAGE_TAG = "${BUILD_NUMBER}"
         // save the last successful build version
@@ -136,7 +137,22 @@ pipeline {
             }
         }
 
+// deploy STG application 
+        stage('Deploy stg') {
+            steps {
+                echo "deploy app in STG"
+                sh '''
+                    docker stop ${CONTAINER_NAME}-STG  ||  true 
+                    docker rm ${CONTAINER_NAME}-STG  || true 
+                    docker pull ${IMAGE_NAME}:${IMAGE_TAG}
+                    docker run -d --name ${DOCKER_IMAGE}-STG -p ${STG_APP_PORT}:8000  ${IMAGE_NAME}:${IMAGE_TAG}
+          '''
+                  }
+         }
 
+
+
+        }
 //  deploy application
 
         stage('Deploy') {
