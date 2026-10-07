@@ -142,8 +142,8 @@ pipeline {
             steps {
                 echo "deploy app in STG"
                 sh '''
-                    docker stop ${CONTAINER_NAME}-STG  ||  true 
-                    docker rm ${CONTAINER_NAME}-STG  || true 
+                    docker stop ${CONTAINER_NAME}_STG  ||  true 
+                    docker rm ${CONTAINER_NAME}_STG  || true 
                     docker pull ${IMAGE_NAME}:${IMAGE_TAG}
                     docker run -d --name ${DOCKER_IMAGE}_STG -p ${STG_APP_PORT}:8000  ${IMAGE_NAME}:${IMAGE_TAG}
           '''
